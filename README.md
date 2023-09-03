@@ -4,7 +4,7 @@ In this homework you will learn about the task of language modeling through an i
 
 # Deadline and report
 
-The grade of this assignment will be determined with the code parts and a written report. In this report you must answer the questions in **bold**. Upload the report to the repository in a PDF file named *Lastname_NLU.pdf*.
+The grade of this assignment will be determined with the code parts and a written report. In the report you must answer the questions in **bold**. Upload the report to the repository in a PDF file named *Lastname_NLU.pdf*.
 
 ## Installation and requirements
 
