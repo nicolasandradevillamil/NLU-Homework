@@ -12,6 +12,7 @@ In this homework you will learn about the task of language modeling through an i
 For this part, review the [explore_dataset.py](explore_dataset.py) and [preprocessing.py](preprocessing.py) codes. Observe that [explore_dataset.py](explore_dataset.py) uses the [datasets](https://huggingface.co/docs/datasets/index) library. It loads the dataset directly from the Huggingface hub! Your first task is to explore this dataset that you will use to train the language models. Answer the following questions, you may edit [explore_dataset.py](explore_dataset.py) in order to answer.
 
 **How many recipes does this dataset have in total? How many are in the train and test sets?**
+
 **What columns (features) does the dataset have? Give a brief description of what each one corresponds to.** Notice that the function *create_full_recipes* outputs a pandas DataFrame.
 
 Find out what kinds of recipes does the dataset have. For this, **determine the 20 most common words used in the recipe names in both the train and test sets. Are they the same for both sets? What happens if you find out the 20 most common words for the recipe steps? Would it be useful information for knowing what kinds of recipes are in the dataset?**
