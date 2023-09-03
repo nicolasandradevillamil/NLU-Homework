@@ -9,18 +9,14 @@ In this homework you will learn about the task of language modeling through an i
 
 ## Part 1: Dataset exploration (1 point)
 
-For this part, review the 
+For this part, review the [explore_dataset.py](explore_dataset.py) and [preprocessing.py](preprocessing.py) codes. Observe that [explore_dataset.py](explore_dataset.py) uses the [datasets](https://huggingface.co/docs/datasets/index) library. It loads the dataset directly from the Huggingface hub! Your first task is to explore the dataset that you will use to train the language models. Answer the following questions, you may edit [explore_dataset.py](explore_dataset.py) in order to answer.
 
-**What do the nodes and edges represent? How many are there?**
+**How many recipes does this dataset have in total? How many are in the train and test sets?**
+**What columns (features) does the dataset have? Give a brief description of what each one corresponds to.** Notice that the function *create_full_recipes* outputs a pandas DataFrame.
 
-**What features are used to describe each node?**
+Find out what kinds of recipes does the dataset have. For this, **determine the 20 most common words used in the recipe names in both the train and test sets. Are they the same for both sets? What happens if you find out the 20 most common words for the recipe steps? Would it be useful information for knowing what kinds of recipes are in the dataset?**
 
-**Is the graph directed or undirected?**
-
-**What is the task for this dataset? What metric is used to evaluate this task?**
-
-Then, choose two datasets from the [Open Graph Benchmark](https://ogb.stanford.edu/) datasets that are used for a different task than the Cora dataset and **give a brief description.** 
-
+**Estimate the percentage of desserts in the train and test sets.*Hint: Use the ingredients!*
 
 ### Installation:
 
