@@ -19,18 +19,6 @@ Find out what kinds of recipes does the dataset have. For this, **determine the 
 
 **Estimate the percentage of desserts in the train and test sets.** *Hint: Use the ingredients!*
 
-### Installation:
-
-To download the dataset, run:
-
-wget https://linqs-data.soe.ucsc.edu/public/lbc/cora.tgz
-
-This will download a .tgz file containing the relevant files. To unzip this file, run:
-
-tar zxvf cora.tgz
-
-Finally, you must specify the path to the dataset in the `config.json` file inside the `src` directory.
-
 ## Part 2: Implementation (1 point)
 
 In this part, you will be implementing the GraphSAGE model for the defined task on the Cora dataset. For this purpose, you should initially dive into the code to get a general understanding of the model. The Cora dataset class is defined in `datasets/node_classification.py` and the model implementation in the rest of the `src/` files. 
