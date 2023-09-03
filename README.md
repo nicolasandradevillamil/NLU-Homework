@@ -22,9 +22,9 @@ Let's find out what kinds of recipes does the dataset have. For this, **determin
 
 **Estimate the percentage of desserts in the train and test sets.** *Hint: Use the ingredients!*
 
-## Part 2: Implementation (1 point)
+## Part 2: Micro GPT
 
-In this part, you will be implementing the GraphSAGE model for the defined task on the Cora dataset. For this purpose, you should initially dive into the code to get a general understanding of the model. The Cora dataset class is defined in `datasets/node_classification.py` and the model implementation in the rest of the `src/` files. 
+In this part, you will complete a very small decoder transformer that can generate text trained on the recipes. 
 
 a. Based on the Cora dataset class, **explain in your own words the difference between training a transductive and inductive model. What would you expect to give better results?**
 
