@@ -17,7 +17,7 @@ For this part, review the [explore_dataset.py](explore_dataset.py) and [preproce
 
 Find out what kinds of recipes does the dataset have. For this, **determine the 20 most common words used in the recipe names in both the train and test sets. Are they the same for both sets? What happens if you find out the 20 most common words for the recipe steps? Would it be useful information for knowing what kinds of recipes are in the dataset?**
 
-**Estimate the percentage of desserts in the train and test sets.*Hint: Use the ingredients!*
+**Estimate the percentage of desserts in the train and test sets.** *Hint: Use the ingredients!*
 
 ### Installation:
 
