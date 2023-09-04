@@ -62,33 +62,8 @@ The MicroGPT you used in the previous part employs a method of tokenization that
 
 You have now trained a small GPT and GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model.**
 
-To run the model with the default parameters, go to `src` and use the command: 
-
-```python
-python main.py
-```
-
-First, experiment with the aggregation arquitecture. 
-
-You must run **4 experiments**, one for each of the available methods.  Then, choose other tunable hyperparameters that you wish to explore and run at leat **6 extra experiments**. In the `src` directory, edit the `config.json` file to specify arguments and flags.
-
-a. To have the complete points, you need to **attach a table with all the experiments to your report.** 
-
-b. In addition, discuss how each of the hyperparameters and aggregating arquitectures that you modified affect the performance of the network.** **Are your results as expected?**
-
-## Part 4: Layer experimentation (1 point)
-
-Finally, you should choose the best model found in Part 4 and experiment with the number of layers in the model. You must perform at least 2 extra experiments. In the report **attach the table with the results and discuss them**.
-
-# Deadline and report
-
-Please upload to your repository a PDF file named Lastname_Graphs.pdf.
-
-Deadline: Sep 11, 2023, 23:59
-
 # References
 
-* [Inductive Representation Learning on Large Graphs](http://papers.nips.cc/paper/6703-inductive-representation-learning-on-large-graphs), Hamilton et al., NeurIPS 2017.
-
-* This implementation is based on https://github.com/raunakkmr/GraphSAGE
+* The microGPT implementation is based on https://github.com/karpathy/ng-video-lecture.
+* The GPT-2 implementation is based on https://huggingface.co/learn/nlp-course/chapter7/6?fw=pt
 
