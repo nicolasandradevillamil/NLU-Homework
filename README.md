@@ -22,18 +22,27 @@ Let's find out what kinds of recipes does the dataset have. For this, **determin
 
 **Estimate the percentage of desserts in the train and test sets.** *Hint: Use the ingredients!*
 
-## Part 2: Micro GPT (1 point)
+## Part 2: Micro GPT (1.5 points)
 
 In this part, you will complete a very small decoder transformer that can generate text trained on the recipes. This will be a baseline language model. 
 
-Check the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. 
-a. Based on the Cora dataset class, **explain in your own words the difference between training a transductive and inductive model. What would you expect to give better results?**
+Check the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that includes layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
 
-b. Also, include in your report an **explanation of the message passing algorithm that is implemented in the forward function in the `model.py` file and the `layers.py` file. How are the messages being aggregated?  How many layers does the model initially have?** Hint: Look to indentify how each of the message passing algorithm steps for a GraphSAGE layer (message calculation for each neighbor, aggregation and activation) is implemented and where. 
+**Explain the tokenization method that is being used in the model**
 
-To be able to run the code, you have to complete some missing lines in [layers.py](src/layers.py) file. In this file, you will find the different aggregator architectures used in the [GraphSAGE paper](http://papers.nips.cc/paper/6703-inductive-representation-learning-on-large-graphs). You need to complete the mean aggregator and the pooling aggregator classes. Please only modify the code where you are asked to do so (#TODO).
+**How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)?**
 
-Once the missing lines are completed, you are ready for the experimentation part!
+**Run [train_baseline.py](train_baseline.py). Try 3 different experiments changing hyperparameters. In your report explain what hyperparameters you changed and the perplexity obtained in each experiment.**
+
+**Modify the code in [model_baseline.py](model_baseline.py) so that the transformer becomes a decoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why?** Undo the changes so that the transformer is a decoder again. 
+
+**Modify the code in [model_baseline.py](model_baseline.py) removing the residual connections from the transformer. In the report include an explanation of how you removed them. Train the model (decoder) running [train_baseline.py](train_baseline.py). How did the results change? Did they improve? Why?** Undo the changes after answering.
+
+**Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results cualitatively changed with different prompts.**
+
+## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
+
+The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. 
 
 ## Part 3: Experimentation (2 points)
 
