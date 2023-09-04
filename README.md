@@ -54,7 +54,7 @@ In [preprocessing.py](preprocessing.py) a full recipe is being created in a very
 " BEGINRECIPE " + entry1 + " Ingredients: " + entry2 + " Steps: " + entry3 + " ENDRECIPE "
 ```
 
-Try out your own way for creating full recipes. **Include in the report a comparison between the final perplexity obtained with the original format and with your format.** Keep the same hyperparameters for this comparison. **Explain whether one of the formats for the full recipe would help the model in the generation task and why**
+Try out your own way for creating full recipes. **Include in the report a comparison between the final perplexity obtained with the original format and with your format.** Keep the same hyperparameters for this comparison. **Explain whether one of the formats for the full recipe would help the model in the generation task and why.**
 
 ## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
 
