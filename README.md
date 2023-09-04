@@ -28,7 +28,7 @@ In this part you will use a very small transformer decoder that can generate tex
 
 Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that has layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
 
-**Explain the tokenization method that is being used in the model.**
+**Explain the tokenization method that is being used in the model. How big is the vocabulary?**
 
 **How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)?**
 
@@ -42,15 +42,25 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts.**
 
+### Bonus (0.3 points)
+You might have noticed that the perplexity metric is being calculated as the exponential of the cross-entropy loss. However, in class we saw a different definition of perplexity. It turns out these¨definitions are equivalent! **Prove this (mathematically)**. Remember that the formula for perplexity seen in class is:
+
+$Perplexity = \displaystyle{\prod_{t=1}^T(\frac{1}{P_{LM}(x^{t+1}|x^1, x^2, \ldots, x^t)})^\frac{1}{T}}$
+
 ## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
 
 The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. Look at the (train_baseline_newtokens.py)[train_baseline_newtokens.py] code. It is almost the same as [train_baseline.py](train_baseline.py). You are going to modify the tokenizer so that you train the same microGPT model but with new tokens. First complete the final part as you did in [train_baseline.py](train_baseline.py). After that, do the following:
 
-**Complete (train_baseline_newtokens.py)[train_baseline_newtokens.py] with the GPT-2 tokenizer.** 
+**Complete (train_baseline_newtokens.py)[train_baseline_newtokens.py] with the GPT-2 tokenizer. What is the new vocabulary size?** 
 
 **Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 qualitative result.**
 
-## Part 3: Experimentation (2 points)
+## Part 4: GPT-2 (1 point)
+
+
+## Part 5: Final demo (1 point)
+
+You have now trained a small GPT and GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model.**
 
 To run the model with the default parameters, go to `src` and use the command: 
 
