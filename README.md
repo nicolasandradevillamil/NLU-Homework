@@ -36,7 +36,7 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Run [train_baseline.py](train_baseline.py). Try 3 different experiments changing hyperparameters. In your report explain what hyperparameters you changed and the perplexity obtained in each experiment.**
 
-**Modify the code in [model_baseline.py](model_baseline.py) so that the transformer becomes a decoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why?** Undo the changes so that the transformer is a decoder again. 
+**Modify the code in [model_baseline.py](model_baseline.py) so that the transformer becomes an encoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why?** Undo the changes so that the transformer is a decoder again. 
 
 **Modify the code in [model_baseline.py](model_baseline.py) removing the residual connections from the transformer. In the report include an explanation of how you removed them. Train the model (decoder) running [train_baseline.py](train_baseline.py). How did the results change? Did they improve? Why?** Undo the changes after answering.
 
