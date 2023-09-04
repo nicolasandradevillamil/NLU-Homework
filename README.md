@@ -44,7 +44,11 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 ## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
 
-The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. 
+The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. Look at the (train_baseline_newtokens.py)[train_baseline_newtokens.py] code. It is almost the same as [train_baseline.py](train_baseline.py). You are going to modify the tokenizer so that you train the same microGPT model but with new tokens. First complete the final part as you did in [train_baseline.py](train_baseline.py). After that, do the following:
+
+**Complete (train_baseline_newtokens.py)[train_baseline_newtokens.py] with the GPT-2 tokenizer. ** 
+
+**Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 cualitative result.**
 
 ## Part 3: Experimentation (2 points)
 
