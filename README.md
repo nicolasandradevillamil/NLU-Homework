@@ -66,7 +66,14 @@ The MicroGPT you used in the previous part employs a method of tokenization that
 
 ## Part 4: GPT-2 (1 point)
 
-Now you are going to finetune a pretrained GPT-2 for generating recipes. 
+Now you are going to finetune a pretrained GPT-2 for generating recipes. Analyze [train_GPT2.py](train_GPT2.py). This code uses more libraries from Huggingface. It includes [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index).
+
+**Run [train_GPT2.py](train_GPT2.py). Try at least 2 experiments changing hyperparameters. Include in your report the final perplexity and at least 1 qualitative result.** Note: This will take considerably longer time than training the previous models. 
+
+**Experiment with the same prompts you used in part 2. Analyze how the results changed with this new model. Is GPT-2 performing better than the previous model?**
+
+**Explain what the DataCollatorForLanguageModeling does. What is the difference between casual language modeling and masked language modeling?**
+
 
 ## Part 5: Final demo (1 point)
 
