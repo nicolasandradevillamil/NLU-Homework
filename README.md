@@ -24,13 +24,15 @@ Let's find out what kinds of recipes does the dataset have. For this, **determin
 
 ## Part 2: Micro GPT (1.5 points)
 
-In this part you will complete a very small decoder transformer that can generate text trained on the recipes. This will be a baseline language model. 
+In this part you will use a very small transformer decoder that can generate text trained on the recipes. This will be a baseline language model. 
 
 Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that has layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
 
 **Explain the tokenization method that is being used in the model.**
 
 **How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)?**
+
+**Explain what the `n_head` `n_embed` and `n_layer` parameters are.**
 
 **Run [train_baseline.py](train_baseline.py). Try 3 different experiments changing hyperparameters. In your report explain what hyperparameters you changed and the perplexity obtained in each experiment.**
 
