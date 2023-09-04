@@ -42,10 +42,19 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts.**
 
-### Bonus (0.3 points)
+### Bonus 1 (0.3 points)
 You might have noticed that the perplexity metric is being calculated as the exponential of the cross-entropy loss. However, in class we saw a different definition of perplexity. It turns out these definitions are equivalent! **Prove this (mathematically)**. Remember that the formula for perplexity seen in class is:
 
 $Perplexity = \displaystyle{\prod_{t=1}^T(\frac{1}{P_{LM}(x^{t+1}|x^1, x^2, \ldots, x^t)})^\frac{1}{T}}$
+
+### Bonus 2 (0.1 points)
+In [preprocessing.py](preprocessing.py) a full recipe is being created in a very specific way, with the following format:
+
+```
+" BEGINRECIPE " + entry1 + " Ingredients: " + entry2 + " Steps: " + entry3 + " ENDRECIPE "
+```
+
+Try out your own way for creating full recipes. **Include in the report a comparison between the final perplexity obtained with the original format and with your format.** Keep the same hyperparameters for this comparison. **Explain whether one of the formats for the full recipe would help the model in the generation task and why**
 
 ## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
 
@@ -57,10 +66,11 @@ The MicroGPT you used in the previous part employs a method of tokenization that
 
 ## Part 4: GPT-2 (1 point)
 
+Now you are going to finetune a pretrained GPT-2 for generating recipes. 
 
 ## Part 5: Final demo (1 point)
 
-You have now trained a small GPT and GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model.**
+You have now trained a small GPT and finetuned GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model.**
 
 # References
 
