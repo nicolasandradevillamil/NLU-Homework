@@ -40,7 +40,7 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Modify the code in [model_baseline.py](model_baseline.py) removing the residual connections from the transformer. In the report include an explanation of how you removed them. Train the model (decoder) running [train_baseline.py](train_baseline.py). How did the results change? Did they improve? Why?** Undo the changes after answering.
 
-**Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results cualitatively changed with different prompts.**
+**Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts.**
 
 ## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
 
@@ -48,7 +48,7 @@ The MicroGPT you used in the previous part employs a method of tokenization that
 
 **Complete (train_baseline_newtokens.py)[train_baseline_newtokens.py] with the GPT-2 tokenizer.** 
 
-**Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 cualitative result.**
+**Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 qualitative result.**
 
 ## Part 3: Experimentation (2 points)
 
