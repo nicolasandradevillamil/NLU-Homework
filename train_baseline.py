@@ -35,7 +35,7 @@ parser.add_argument('--dropout', type=float, default=0.2,
                     help='Training dropout')
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='Disables CUDA training')
-parser.add_argument('--seed', type=int, default=134,
+parser.add_argument('--seed', type=int, default=41255,
                     help='Random seed (default: 1)')
 parser.add_argument('--save_path', type=str, default="baseline.pkl",
                     help='Path for saving the model (make sure it exists)')
