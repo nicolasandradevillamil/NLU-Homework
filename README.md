@@ -24,7 +24,7 @@ Let's find out what kinds of recipes does the dataset have. For this, **determin
 
 ## Part 2: Micro GPT (1.5 points)
 
-In this part, you will complete a very small decoder transformer that can generate text trained on the recipes. This will be a baseline language model. 
+In this part you will complete a very small decoder transformer that can generate text trained on the recipes. This will be a baseline language model. 
 
 Check the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that includes layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
 
