@@ -43,7 +43,7 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 **Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts.**
 
 ### Bonus (0.3 points)
-You might have noticed that the perplexity metric is being calculated as the exponential of the cross-entropy loss. However, in class we saw a different definition of perplexity. It turns out these¨definitions are equivalent! **Prove this (mathematically)**. Remember that the formula for perplexity seen in class is:
+You might have noticed that the perplexity metric is being calculated as the exponential of the cross-entropy loss. However, in class we saw a different definition of perplexity. It turns out these definitions are equivalent! **Prove this (mathematically)**. Remember that the formula for perplexity seen in class is:
 
 $Perplexity = \displaystyle{\prod_{t=1}^T(\frac{1}{P_{LM}(x^{t+1}|x^1, x^2, \ldots, x^t)})^\frac{1}{T}}$
 
