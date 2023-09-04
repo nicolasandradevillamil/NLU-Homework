@@ -22,10 +22,11 @@ Let's find out what kinds of recipes does the dataset have. For this, **determin
 
 **Estimate the percentage of desserts in the train and test sets.** *Hint: Use the ingredients!*
 
-## Part 2: Micro GPT
+## Part 2: Micro GPT (1 point)
 
-In this part, you will complete a very small decoder transformer that can generate text trained on the recipes. 
+In this part, you will complete a very small decoder transformer that can generate text trained on the recipes. This will be a baseline language model. 
 
+Check the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. 
 a. Based on the Cora dataset class, **explain in your own words the difference between training a transductive and inductive model. What would you expect to give better results?**
 
 b. Also, include in your report an **explanation of the message passing algorithm that is implemented in the forward function in the `model.py` file and the `layers.py` file. How are the messages being aggregated?  How many layers does the model initially have?** Hint: Look to indentify how each of the message passing algorithm steps for a GraphSAGE layer (message calculation for each neighbor, aggregation and activation) is implemented and where. 
