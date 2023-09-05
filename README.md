@@ -81,7 +81,9 @@ You have now trained a small GPT and finetuned GPT-2 for the same task of genera
 ## Part 6: Conclusions (0.5)
 
 Write in your report an analysis of your overall results. It must include answers to the following questions:
+
 **What would you modify for the models to generate better recipes? (0.25 points)** Be specific about hyperparameters, model architecture, etc.
+
 **Was the size of the dataset a problem for training the models? Why? (0.25 points)**
 
 # References
