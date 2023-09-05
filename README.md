@@ -43,7 +43,6 @@ Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the mo
 
 **Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts. (0.3 points)**
 
-Check out the original [GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)
 
 ### Bonus 1 (0.3 points)
 You might have noticed that the perplexity metric is being calculated as the exponential of the cross-entropy loss. However, in class we saw a different definition of perplexity. It turns out these definitions are equivalent! **Prove this (mathematically)**. Remember that the formula for perplexity seen in class is:
