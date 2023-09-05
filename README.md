@@ -76,13 +76,13 @@ Now you are going to finetune a pretrained GPT-2 for generating recipes. Analyze
 
 ## Part 5: Demo (0.5 points)
 
-You have now trained a small GPT and finetuned GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. Name the code `demo.py` and upload it to the repository. The code should work so that if the user runs the command `python demo.py` in the terminal, then a text is printed asking what model should be used. The user then answers and the code asks for a number of tokens generated. After this, the code should ask for the prompt. Finally, it should print the output from the mmodel **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model. (0.5 points)**
+You have now trained a small GPT and finetuned GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. Name the code `demo.py` and upload it to the repository. The code should work so that if the user runs the command `python demo.py` in the terminal, then a text is printed asking what model should be used. The user then answers and the code asks for a number of tokens generated. After this, the code should ask for the prompt. Finally, it should print the output from the model that was chosen. **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model. (0.5 points)**
 
 ## Part 6: Conclusions (0.5)
 
 Write in your report an analysis of your overall results. It must include answers to the following questions:
-**What would you modify for the models to generate better recipes?**
-**Was the size of the dataset a problem for training the models? Why?**
+**What would you modify for the models to generate better recipes? (0.25 points)** Be specific about hyperparameters, model architecture, etc.
+**Was the size of the dataset a problem for training the models? Why? (0.25 points)**
 
 # References
 
