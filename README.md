@@ -81,9 +81,11 @@ The MicroGPT you used in the previous part employs a method of tokenization that
 
 Now you are going to finetune a pretrained GPT-2 for generating recipes. Analyze [train_GPT2.py](train_GPT2.py). This code uses more libraries from Huggingface. It includes [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index).
 
-**Run [train_GPT2.py](train_GPT2.py). Try at least 2 experiments changing hyperparameters. Include in your report the final perplexity and at least 1 qualitative result.** Note: This will take considerably longer time than training the previous models. 
+**Run [train_GPT2.py](train_GPT2.py). Try at least 3 experiments changing hyperparameters. Include in your report the final perplexity for each experiment and at least 1 qualitative result. (0.2 points)** Don't forget to include in the report what hyperparamenters did you use.
 
-**Experiment with the same prompts you used in part 2. Analyze how the results changed with this new model. Is GPT-2 performing better than the previous model?**
+**Experiment with the same prompts you used in part 2. Analyze how the results changed with this new model. Is GPT-2 performing better than micro GPT? (0.2 points).**
+
+**Explain what the `k` parameter is (0.1 points).**
 
 ## Part 5: Demo (0.5 points)
 
