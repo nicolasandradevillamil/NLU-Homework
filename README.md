@@ -8,6 +8,14 @@ The grade of this assignment will be determined with the code parts and a writte
 
 ## Installation and requirements
 
+Check that you have pytorch 1.1.0+ `python -c "import torch; print(torch.__version__)"`. If you don't install it with the following code:
+
+```
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+
+
+
 
 ## Part 1: Dataset exploration (1 point)
 
