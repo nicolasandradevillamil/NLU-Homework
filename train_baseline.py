@@ -193,7 +193,8 @@ if args.train == 1:
 
 else:
    model = BigramLanguageModel()
-   model.load_state_dict(save_path)
+   model.load_state_dict(torch.load(save_path))
+   model.to(device)
    save_result=False
 
 prompt = args.prompt
@@ -208,7 +209,7 @@ else:
 
 if save_result==True:
     result = decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
-    print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
+    print(result)
 
     file_path = args.results_path
     data["output"] = result
@@ -219,5 +220,5 @@ if save_result==True:
     print(f"Results saved to {file_path}")
 else:
     result = decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
-    print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
+    print(result)
 
