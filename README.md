@@ -22,7 +22,7 @@ $ pip install pandas numpy datasets transformers accelerate
 
 ## Part 1: Dataset exploration (1 point)
 
-For this part, review the [explore_dataset.py](explore_dataset.py) and [preprocessing.py](preprocessing.py) codes. Observe that [explore_dataset.py](explore_dataset.py) uses the [datasets](https://huggingface.co/docs/datasets/index) library. It loads the dataset directly from the Huggingface hub! Your first task is to explore this dataset that you will use to train the language models. Answer the following questions. You may edit [explore_dataset.py](explore_dataset.py) in order to answer.
+For this part, review the [explore_dataset.py](src/explore_dataset.py) and [preprocessing.py](src/preprocessing.py) codes. Observe that [explore_dataset.py](src/explore_dataset.py) uses the [datasets](https://huggingface.co/docs/datasets/index) library. It loads the dataset directly from the Huggingface hub! Your first task is to explore this dataset that you will use to train the language models. Answer the following questions. You may edit [explore_dataset.py](src/explore_dataset.py) in order to answer.
 
 **How many recipes does this dataset have in total? How many are in the train and test sets? (0.2 points)**
 
