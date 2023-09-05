@@ -33,7 +33,7 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Explain what the `n_head` `n_embed` and `n_layer` parameters are. (0.1 points)**
 
-**Is the model using the same ´`n_head` and `n_layer` parameters as the [the original GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)? (0.2 points)**
+**Is the model using the same `n_head` and `n_layer` parameters as the [the original GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)? (0.2 points)**
 
 Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the model architecture and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
 
