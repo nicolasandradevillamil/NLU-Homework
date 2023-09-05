@@ -95,9 +95,11 @@ You have now trained a small GPT and finetuned GPT-2 for the same task of genera
 
 Write in your report an analysis of your overall results. It must include answers to the following questions:
 
-**What would you modify for the models to generate better recipes? (0.25 points)** Be specific about hyperparameters, model architecture, etc.
+**What would you modify for the models to generate better recipes? (0.1 points)** Be specific about hyperparameters, model architecture, etc.
 
-**Was the size of the dataset a problem for training the models? Why? (0.25 points)**
+**Is the GPT-2 tokenizer implementation causing issues in the performance of the models that use it? Explain why (0.2 points).**
+
+**Was the size of the dataset a problem for training the models? Why? (0.2 points)**
 
 # References
 
