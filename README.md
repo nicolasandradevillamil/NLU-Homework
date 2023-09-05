@@ -62,9 +62,9 @@ Try out your own way for creating full recipes. **Include in the report a compar
 
 The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. Look at the [train_baseline_newtokens.py](train_baseline_newtokens.py) code. It is almost the same as [train_baseline.py](train_baseline.py). You are going to modify the tokenizer so that you train the same microGPT model but with new tokens. First complete the final part as you did in [train_baseline.py](train_baseline.py). After that, do the following:
 
-**Complete [train_baseline_newtokens.py](train_baseline_newtokens.py) with the GPT-2 tokenizer. What is the new vocabulary size?** 
+**Complete [train_baseline_newtokens.py](train_baseline_newtokens.py) with the GPT-2 tokenizer. What is the new vocabulary size? (0.25 points)** 
 
-**Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 qualitative result.**
+**Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 qualitative result.(0.25 points)**
 
 ## Part 4: GPT-2 (0.5 points)
 
