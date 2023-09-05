@@ -7,7 +7,7 @@ import pandas as pd
 import json
 
 from preprocessing import create_full_recipes
-from baseline_model import *
+from model_baseline import *
 from datasets import load_dataset
 import time
 import argparse
@@ -31,7 +31,7 @@ parser.add_argument('--max_new_tokens', type=int, default=1000,help='Number of t
 parser.add_argument('--context_length', type=int, default=128,help='Max length of tokenized inputs')
 parser.add_argument('--prompt', type=str, default='',help='Prompt for the recipe generation.')
 parser.add_argument('--results_path', type=str, default='baseline_newtokens.json', help='Path for the json file with results')
-parser.add_argument('--train', type=bool, default=True, help='True if training model from scratch, False if loading a pretrained model')
+parser.add_argument('--train', type=int, default=1, help='True if training model from scratch, False if loading a pretrained model')
 
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
@@ -180,13 +180,15 @@ def train_model():
         print(f"test loss {test_loss:.4f}, test perplexity {test_perplexity:.4f}")
 
 if args.train == 1:
-    train_model()
-    torch.save(model.state_dict(), save_path)
-    save_results = True
+  train_model()
+  torch.save(model.state_dict(), save_path)
+  save_result=True
+
 else:
-    model = BigramLanguageModel()
-    model.load_state_dict(save_path)
-    save_results = False
+   model = BigramLanguageModel()
+   model.load_state_dict(torch.load(save_path))
+   model.to(device)
+   save_result=False
 
 prompt = args.prompt
 if prompt == '':
@@ -198,7 +200,7 @@ else:
     #YOUR CODE HERE 
     #---------------------------------------------------------------------------------
 
-if save_results == True:
+if save_result==True:
     result = tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
     print(result)
 
@@ -209,7 +211,6 @@ if save_results == True:
         json.dump(data, json_file)
 
     print(f"Results saved to {file_path}")
-
 else:
     result = tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
     print(result)
