@@ -207,7 +207,9 @@ if prompt == '':
 else:
     idx = ''
     #TODO Modify this part of the code so that you can write a prompt for the model
-
+    #---------------------------------------------------------------------------------
+    #YOUR CODE HERE 
+    #---------------------------------------------------------------------------------
 print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
 
 

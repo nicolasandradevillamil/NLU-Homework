@@ -26,7 +26,7 @@ parser.add_argument('--eval-iters', type=int, default=100, help='Number of evalu
 parser.add_argument('--lr', type=float, default=5e-4, help='Learning rate')
 parser.add_argument('--no-cuda', action='store_true', default=False, help='Disables CUDA training')
 parser.add_argument('--num-warmup-steps', type=int, default=10, help='Warmup steps for learning rate scheduler')
-parser.add_argument('--prompt', type=str, default="", help='Prompt for text generation')
+parser.add_argument('--prompt', type=str, default=" BEGINRECIPE ", help='Prompt for text generation')
 parser.add_argument('--print-frequency',type=int,default=20,help='Interval before printing loss')
 parser.add_argument('--max_tokens',type=int,default=300,help='Max number of tokens generated')
 
@@ -212,7 +212,7 @@ generator = pipeline(
     model=model,
     tokenizer=tokenizer,
     device=device,
-    max_tokens=max_tokens,
+    max_length=max_tokens,
 )
 
 generated_text = generator(prompt, num_return_sequences=1)[0]["generated_text"]

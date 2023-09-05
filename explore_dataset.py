@@ -16,3 +16,8 @@ test_dataset = pd.DataFrame(create_full_recipes(test_dataset))
 #2) Find out what columns does the dataset have and what each one corresponds to
 #3) Determine the 20 most common words in the recipe names for the train and test set
 #4) Estimate the percentage of dessert recipes for the train and test sets
+#--------------------------------------------------------
+#YOUR CODE HERE
+
+#--------------------------------------------------------
+

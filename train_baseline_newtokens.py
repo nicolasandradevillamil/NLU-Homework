@@ -73,14 +73,15 @@ save_path = args.save_path
 max_new_tokens = args.max_new_tokens
 
 #TODO Implement the GPT-2 tokenizer 
+#-------------------------------------------------------------
+#YOUR CODE HERE
 tokenizer = ''
 tokenized_train = ''
 tokenized_test = ''
 vocab_size = ''
 if tokenizer == '':
     raise NotImplementedError 
-
-
+#-------------------------------------------------------------
 
 train_dataset = pd.DataFrame(tokenized_train)
 test_dataset = pd.DataFrame(tokenized_test)
@@ -200,5 +201,7 @@ if prompt == '':
 else:
     idx = ''
     #TODO Modify this part of the code so that you can write a prompt for the model
-
+    #---------------------------------------------------------------------------------
+    #YOUR CODE HERE 
+    #---------------------------------------------------------------------------------
 print(tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
