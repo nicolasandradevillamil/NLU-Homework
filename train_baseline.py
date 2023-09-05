@@ -208,7 +208,6 @@ result = decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
 print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
 
 file_path = args.results_path
-breakpoint()
 data["output"] = result
 # Write the dictionary to a JSON file
 with open(file_path, "w") as json_file:
