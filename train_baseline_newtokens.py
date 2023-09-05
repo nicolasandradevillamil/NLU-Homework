@@ -4,6 +4,7 @@ import torch.nn as nn
 from torch.nn import functional as F
 from transformers import AutoTokenizer
 import pandas as pd
+import json
 
 from preprocessing import create_full_recipes
 from baseline_model import *
@@ -12,41 +13,25 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser(description='Transformer decoder')
-parser.add_argument('--batch-size', type=int, default=32,
-                    help='Batch size for training')
-parser.add_argument('--block-size', type=int, default=128,
-                    help='Batch size for training')
-parser.add_argument('--max_iters', type=int, default=5000,
-                    help='Number of iterations to train')
-parser.add_argument('--eval_iters', type=int, default=2000,
-                    help='Number of iterations to evaluate')
-parser.add_argument('--lr', type=float, default=3e-4,
-                    help='Initial learning rate')
-parser.add_argument('--print-interval', type=float, default=20,
-                    help='Number of training batches before printing loss')
-parser.add_argument('--n_embed', type=float, default=384,
-                    help='')
-parser.add_argument('--n_head', type=float, default=6,
-                    help='')
-parser.add_argument('--n_layer', type=float, default=3,
-                    help='')
-parser.add_argument('--dropout', type=float, default=0.2,
-                    help='Training dropout')
-parser.add_argument('--no-cuda', action='store_true', default=False,
-                    help='Disables CUDA training')
-parser.add_argument('--seed', type=int, default=42,
-                    help='Random seed (default: 1)')
-parser.add_argument('--save_path', type=str, default="baseline_newtokens.pkl",
-                    help='Path for saving the model (make sure it exists)')
-parser.add_argument('--checkpoint_iters', type=int, default=1000,
-                    help='Number of training iterations for saving the model')
-parser.add_argument('--max_new_tokens', type=int, default=1000,
-                    help='Number of training iterations for saving the model')
-parser.add_argument('--context_length', type=int, default=128,
-                    help='Max length of tokenized inputs')
-parser.add_argument('--prompt', type=str, default='',
-                    help='Prompt for the recipe generation.')
-
+parser.add_argument('--batch-size', type=int, default=32, help='Batch size for training')
+parser.add_argument('--block-size', type=int, default=128,help='Batch size for training')
+parser.add_argument('--max_iters', type=int, default=5000,help='Number of iterations to train')
+parser.add_argument('--eval_iters', type=int, default=2000, help='Number of iterations to evaluate')
+parser.add_argument('--lr', type=float, default=3e-4,help='Initial learning rate')
+parser.add_argument('--print-interval', type=float, default=20, help='Number of training batches before printing loss')
+parser.add_argument('--n_embed', type=float, default=384,help='')
+parser.add_argument('--n_head', type=float, default=6,help='')
+parser.add_argument('--n_layer', type=float, default=3,help='')
+parser.add_argument('--dropout', type=float, default=0.2,help='Training dropout')
+parser.add_argument('--no-cuda', action='store_true', default=False,help='Disables CUDA training')
+parser.add_argument('--seed', type=int, default=42,help='Random seed (default: 1)')
+parser.add_argument('--save_path', type=str, default="baseline_newtokens.pkl",help='Path for saving the model (make sure it exists)')
+parser.add_argument('--checkpoint_iters', type=int, default=1000,help='Number of training iterations for saving the model')
+parser.add_argument('--max_new_tokens', type=int, default=1000,help='Number of training iterations for saving the model')
+parser.add_argument('--context_length', type=int, default=128,help='Max length of tokenized inputs')
+parser.add_argument('--prompt', type=str, default='',help='Prompt for the recipe generation.')
+parser.add_argument('--results_path', type=str, default='baseline.json', help='Path for the json file with results')
+parser.add_argument('--train', type=bool, default=True, help='True if training model from scratch, False if loading a pretrained model')
 
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
@@ -165,7 +150,7 @@ class BigramLanguageModel(nn.Module):
 
 model = BigramLanguageModel()
 m = model.to(device)
-
+data = {}
 #Training
 optimizer = torch.optim.AdamW(model.parameters(),lr = 1e-3)
 def train_model():
@@ -191,9 +176,16 @@ def train_model():
                torch.save(model.state_dict(), save_path)
         #Output loss and perplexity evaluated on the test set
         test_loss, test_perplexity = estimate_loss()
+        data["perplexity"] = test_perplexity.item()
         print(f"test loss {test_loss:.4f}, test perplexity {test_perplexity:.4f}")
-train_model()
-torch.save(model.state_dict(), save_path)
+
+if args.train == True:
+  train_model()
+  torch.save(model.state_dict(), save_path)
+
+else:
+   model = BigramLanguageModel()
+   model.load_state_dict(save_path)
 
 prompt = args.prompt
 if prompt == '':
@@ -204,4 +196,14 @@ else:
     #---------------------------------------------------------------------------------
     #YOUR CODE HERE 
     #---------------------------------------------------------------------------------
-print(tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
+
+result = tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
+print(result)
+
+file_path = args.results_path
+data["output"] = result
+# Write the dictionary to a JSON file
+with open(file_path, "w") as json_file:
+    json.dump(data, json_file)
+
+print(f"Results saved to {file_path}")
