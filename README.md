@@ -8,6 +8,17 @@ The grade of this assignment will be determined with the code parts and a writte
 
 ## Installation and requirements
 
+Check that you have pytorch 1.1.0+ `python -c "import torch; print(torch.__version__)"`. If you don't, install it with the following code:
+
+```
+$ conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+
+Run the following command to install the required libraries. [Datasets](https://huggingface.co/docs/datasets/index), [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index) are from Huggingface.
+
+```
+$ pip install pandas numpy datasets transformers accelerate
+```
 
 ## Part 1: Dataset exploration (1 point)
 
@@ -27,7 +38,7 @@ In this part you will use a very small transformer decoder that can generate tex
 
 Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that has layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
 
-**Explain the tokenization method that is being used in the model. How big is the vocabulary? (0.2 points)**
+**Explain the tokenization method that is being used in the model. What is the vocabulary size? (0.2 points)**
 
 **How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf) (0.2 points)?**
 
@@ -35,7 +46,7 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Is the model using the same `n_head` and `n_layer` parameters as the [original GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)? (0.2 points)**
 
-Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the model architecture and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
+Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the model *architecture* and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
 
 **Modify the code in [model_baseline.py](model_baseline.py) so that the transformer becomes an encoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why? (0.3 points)** Undo the changes so that the transformer is a decoder again. Don't forget to include the hyperparameters you used for training the encoder. 
 
@@ -64,27 +75,31 @@ The MicroGPT you used in the previous part employs a method of tokenization that
 
 **Complete [train_baseline_newtokens.py](train_baseline_newtokens.py) with the GPT-2 tokenizer. What is the new vocabulary size? (0.25 points)** 
 
-**Additionally, run 3 experiments with this new tokenizer. Include in your report the final perplexities and at least 1 qualitative result.(0.25 points)**
+**Additionally, run 3 experiments with this new tokenizer using the 3 best model parameters you found in the grid search. Include in your report the final perplexities and at least 1 qualitative result. Analyze whether using the GPT-2 tokenizer improved the results or not. (0.25 points)**
 
 ## Part 4: GPT-2 (0.5 points)
 
 Now you are going to finetune a pretrained GPT-2 for generating recipes. Analyze [train_GPT2.py](train_GPT2.py). This code uses more libraries from Huggingface. It includes [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index).
 
-**Run [train_GPT2.py](train_GPT2.py). Try at least 2 experiments changing hyperparameters. Include in your report the final perplexity and at least 1 qualitative result.** Note: This will take considerably longer time than training the previous models. 
+**Run [train_GPT2.py](train_GPT2.py). Try at least 3 experiments changing hyperparameters. Include in your report the final perplexity for each experiment and at least 1 qualitative result. (0.2 points)** Don't forget to include in the report what hyperparamenters did you use.
 
-**Experiment with the same prompts you used in part 2. Analyze how the results changed with this new model. Is GPT-2 performing better than the previous model?**
+**Experiment with the same prompts you used in part 2. Analyze how the results changed with this new model. Is GPT-2 performing better than micro GPT? (0.2 points).**
+
+**Explain what the `k` parameter is (0.1 points).**
 
 ## Part 5: Demo (0.5 points)
 
 You have now trained a small GPT and finetuned GPT-2 for the same task of generating recipes with the same dataset. Take your best microGPT and GPT-2 models and write a demo code in which a user can choose what model to generate from. The user should write a prompt for the model and how many tokens should be generated. The demo should print the result from the model. Name the code `demo.py` and upload it to the repository. The code should work so that if the user runs the command `python demo.py` in the terminal, then a text is printed asking what model should be used. The user then answers and the code asks for a number of tokens generated. After this, the code should ask for the prompt. Finally, it should print the output from the model that was chosen. **In the report you must include the qualitative results of giving the models the exact same prompt. Compare the generated texts from each model. (0.5 points)**
 
-## Part 6: Conclusions (0.5)
+## Part 6: Conclusions (0.5 points)
 
 Write in your report an analysis of your overall results. It must include answers to the following questions:
 
-**What would you modify for the models to generate better recipes? (0.25 points)** Be specific about hyperparameters, model architecture, etc.
+**What would you modify for the models to generate better recipes? (0.1 points)** Be specific about hyperparameters, model architecture, etc.
 
-**Was the size of the dataset a problem for training the models? Why? (0.25 points)**
+**Is the GPT-2 tokenizer implementation causing issues in the performance of the models that use it? Explain why (0.2 points).**
+
+**Was the size of the dataset a problem for training the models? Why? (0.2 points)**
 
 # References
 
