@@ -36,7 +36,7 @@ Let's find out what kinds of recipes does the dataset have. For this, **determin
 
 In this part you will use a very small transformer decoder that can generate text trained on the recipes. This will be a baseline language model. 
 
-Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that has layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
+Check out the [model_baseline.py](src/model_baseline.py) and [train_baseline.py](src/train_baseline.py) codes. [model_baseline.py](src/model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that has layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](src/model_baseline.py) code will train this small GPT and output some characters generated.
 
 **Explain the tokenization method that is being used in the model. What is the vocabulary size? (0.2 points)**
 
@@ -46,13 +46,13 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Is the model using the same `n_head` and `n_layer` parameters as the [original GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)? (0.2 points)**
 
-Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the model *architecture* and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
+Run [train_baseline.py](src/train_baseline.py). Choose two hyperparameters of the model *architecture* and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
 
-**Modify the code in [model_baseline.py](model_baseline.py) so that the transformer becomes an encoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why? (0.3 points)** Undo the changes so that the transformer is a decoder again. Don't forget to include the hyperparameters you used for training the encoder. 
+**Modify the code in [model_baseline.py](src/model_baseline.py) so that the transformer becomes an encoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](src/train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why? (0.3 points)** Undo the changes so that the transformer is a decoder again. Don't forget to include the hyperparameters you used for training the encoder. 
 
-**Modify the code in [model_baseline.py](model_baseline.py) removing the residual connections from the transformer. In the report include an explanation of how you removed them. Train the model (decoder) running [train_baseline.py](train_baseline.py). How did the results change? Did they improve? Why? (0.2 points)** Undo the changes after answering. Again, don't forget to mention the hyperparameters you used for training this model.
+**Modify the code in [model_baseline.py](src/model_baseline.py) removing the residual connections from the transformer. In the report include an explanation of how you removed them. Train the model (decoder) running [train_baseline.py](src/train_baseline.py). How did the results change? Did they improve? Why? (0.2 points)** Undo the changes after answering. Again, don't forget to mention the hyperparameters you used for training this model.
 
-**Complete the final part of [train_baseline.py](train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts. (0.3 points)**
+**Complete the final part of [train_baseline.py](src/train_baseline.py) so that you can add a prompt to the model. After this take your best model from the initial experimentation and perform at least 5 experiments with different prompts. In the report include parts of each text generated from each of your prompts. Try at least 1 prompt completely unrelated to cooking recipes. Analyze how the results qualitatively changed with different prompts. (0.3 points)**
 
 
 ### Bonus 1 (0.3 points)
@@ -61,7 +61,7 @@ You might have noticed that the perplexity metric is being calculated as the exp
 $Perplexity = \displaystyle{\prod_{t=1}^T(\frac{1}{P_{LM}(x^{t+1}|x^1, x^2, \ldots, x^t)})^\frac{1}{T}}$
 
 ### Bonus 2 (0.1 points)
-In [preprocessing.py](preprocessing.py) a full recipe is being created in a very specific way, with the following format:
+In [preprocessing.py](src/preprocessing.py) a full recipe is being created in a very specific way, with the following format:
 
 ```
 " BEGINRECIPE " + entry1 + " Ingredients: " + entry2 + " Steps: " + entry3 + " ENDRECIPE "
@@ -71,17 +71,17 @@ Try out your own way for creating full recipes. **Include in the report a compar
 
 ## Part 3: Micro GPT with GPT-2 Tokenizer (0.5 points)
 
-The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. Look at the [train_baseline_newtokens.py](train_baseline_newtokens.py) code. It is almost the same as [train_baseline.py](train_baseline.py). You are going to modify the tokenizer so that you train the same microGPT model but with new tokens. First complete the final part as you did in [train_baseline.py](train_baseline.py). After that, do the following:
+The MicroGPT you used in the previous part employs a method of tokenization that is different from the one used in GPT-2. Look at the [train_baseline_newtokens.py](src/train_baseline_newtokens.py) code. It is almost the same as [train_baseline.py](src/train_baseline.py). You are going to modify the tokenizer so that you train the same microGPT model but with new tokens. First complete the final part as you did in [train_baseline.py](src/train_baseline.py). After that, do the following:
 
-**Complete [train_baseline_newtokens.py](train_baseline_newtokens.py) with the GPT-2 tokenizer. What is the new vocabulary size? (0.25 points)** Use *AutoTokenizer* from the Transformers library. 
+**Complete [train_baseline_newtokens.py](src/train_baseline_newtokens.py) with the GPT-2 tokenizer. What is the new vocabulary size? (0.25 points)** Use *AutoTokenizer* from the Transformers library. 
 
 **Additionally, run 3 experiments with this new tokenizer using the 3 best model parameters you found in the grid search. Include in your report the final perplexities and at least 1 qualitative result. Analyze whether using the GPT-2 tokenizer improved the results or not. (0.25 points)**
 
 ## Part 4: GPT-2 (0.5 points)
 
-Now you are going to finetune a pretrained GPT-2 for generating recipes. Analyze [train_GPT2.py](train_GPT2.py). This code uses more libraries from Huggingface. It includes [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index).
+Now you are going to finetune a pretrained GPT-2 for generating recipes. Analyze [train_GPT2.py](src/train_GPT2.py). This code uses more libraries from Huggingface. It includes [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index).
 
-**Run [train_GPT2.py](train_GPT2.py). Try at least 3 experiments changing hyperparameters. Include in your report the final perplexity for each experiment and at least 1 qualitative result. (0.2 points)** Don't forget to include in the report what hyperparamenters did you use.
+**Run [train_GPT2.py](src/train_GPT2.py). Try at least 3 experiments changing hyperparameters. Include in your report the final perplexity for each experiment and at least 1 qualitative result. (0.2 points)** Don't forget to include in the report what hyperparamenters did you use.
 
 **Experiment with the same prompts you used in part 2. Analyze how the results changed with this new model. Is GPT-2 performing better than micro GPT? (0.2 points).**
 
