@@ -40,7 +40,7 @@ Check out the [model_baseline.py](src/model_baseline.py) and [train_baseline.py]
 
 **Explain the tokenization method that is being used in the model. What is the vocabulary size? (0.2 points)**
 
-**How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf) (0.2 points)?**
+**How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)? (0.2 points)**
 
 **Explain what the `n_head` `n_embed` and `n_layer` parameters are. (0.1 points)**
 
