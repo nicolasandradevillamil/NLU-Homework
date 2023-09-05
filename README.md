@@ -11,11 +11,14 @@ The grade of this assignment will be determined with the code parts and a writte
 Check that you have pytorch 1.1.0+ `python -c "import torch; print(torch.__version__)"`. If you don't, install it with the following code:
 
 ```
-conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+$ conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
 ```
 
+Run the following command to install the required libraries. [Datasets](https://huggingface.co/docs/datasets/index), [Transformers](https://huggingface.co/docs/transformers/index) and [Accelerate](https://huggingface.co/docs/accelerate/index) are from Huggingface.
 
-
+```
+$ pip install pandas numpy datasets transformers accelerate
+```
 
 ## Part 1: Dataset exploration (1 point)
 
@@ -35,7 +38,7 @@ In this part you will use a very small transformer decoder that can generate tex
 
 Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](train_baseline.py) codes. [model_baseline.py](model_baseline.py) includes the different components necessary in a transformer decoder. Notice that the transformer includes a `block` class that has layer normalizations, multi-head attention and a feedforward layer. The [model_baseline.py](model_baseline.py) code will train this small GPT and output some characters generated.
 
-**Explain the tokenization method that is being used in the model. How big is the vocabulary? (0.2 points)**
+**Explain the tokenization method that is being used in the model. What is the vocabulary size? (0.2 points)**
 
 **How is the positional embedding being implemented? Is it the same as the [original transformers paper](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf) (0.2 points)?**
 
@@ -43,7 +46,7 @@ Check out the [model_baseline.py](model_baseline.py) and [train_baseline.py](tra
 
 **Is the model using the same `n_head` and `n_layer` parameters as the [original GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)? (0.2 points)**
 
-Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the model architecture and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
+Run [train_baseline.py](train_baseline.py). Choose two hyperparameters of the model *architecture* and do a 3x3 grid search, this means you have to choose 3 values for each of the 2 hyperparameters and try out all 9 possible combinations. **In your report explain what hyperparameters you changed. Include a table with the final perplexity obtained in the 3x3 grid search. (0.5 points)**
 
 **Modify the code in [model_baseline.py](model_baseline.py) so that the transformer becomes an encoder. In the report include an explanation of the changes you made. After that, train the encoder running [train_baseline.py](train_baseline.py). What happens to the loss and perplexity? What is the model generating? Should you use an encoder for language modeling? Why? (0.3 points)** Undo the changes so that the transformer is a decoder again. Don't forget to include the hyperparameters you used for training the encoder. 
 
