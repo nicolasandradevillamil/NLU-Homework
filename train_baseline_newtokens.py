@@ -179,13 +179,14 @@ def train_model():
         data["perplexity"] = test_perplexity.item()
         print(f"test loss {test_loss:.4f}, test perplexity {test_perplexity:.4f}")
 
-if args.train == True:
-  train_model()
-  torch.save(model.state_dict(), save_path)
-
+if args.train == 1:
+    train_model()
+    torch.save(model.state_dict(), save_path)
+    save_results = True
 else:
-   model = BigramLanguageModel()
-   model.load_state_dict(save_path)
+    model = BigramLanguageModel()
+    model.load_state_dict(save_path)
+    save_results = False
 
 prompt = args.prompt
 if prompt == '':
@@ -197,13 +198,18 @@ else:
     #YOUR CODE HERE 
     #---------------------------------------------------------------------------------
 
-result = tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
-print(result)
+if save_results == True:
+    result = tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
+    print(result)
 
-file_path = args.results_path
-data["output"] = result
-# Write the dictionary to a JSON file
-with open(file_path, "w") as json_file:
-    json.dump(data, json_file)
+    file_path = args.results_path
+    data["output"] = result
+    # Write the dictionary to a JSON file
+    with open(file_path, "w") as json_file:
+        json.dump(data, json_file)
 
-print(f"Results saved to {file_path}")
+    print(f"Results saved to {file_path}")
+
+else:
+    result = tokenizer.decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
+    print(result)

@@ -31,7 +31,7 @@ parser.add_argument('--checkpoint_iters', type=int, default=1000, help='Number o
 parser.add_argument('--max_new_tokens', type=int, default=4000, help='Number of training iterations for saving the model')
 parser.add_argument('--prompt', type=str, default='', help='Prompt for the recipe generation.')
 parser.add_argument('--results_path', type=str, default='baseline.json', help='Path for the json file with results')
-parser.add_argument('--train', type=bool, default=True, help='True if training model from scratch, False if loading a pretrained model')
+parser.add_argument('--train', type=int, default=1, help='1 if training model from scratch, 0 if loading a pretrained model')
 
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
@@ -186,13 +186,15 @@ def train_model():
         data["perplexity"] = test_perplexity.item()
         print(f"test loss {test_loss:.4f}, test perplexity {test_perplexity:.4f}")
 
-if args.train == True:
+if args.train == 1:
   train_model()
   torch.save(model.state_dict(), save_path)
+  save_result=True
 
 else:
    model = BigramLanguageModel()
    model.load_state_dict(save_path)
+   save_result=False
 
 prompt = args.prompt
 if prompt == '':
@@ -204,14 +206,18 @@ else:
     #YOUR CODE HERE 
     #---------------------------------------------------------------------------------
 
-result = decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
-print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
+if save_result==True:
+    result = decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
+    print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
 
-file_path = args.results_path
-data["output"] = result
-# Write the dictionary to a JSON file
-with open(file_path, "w") as json_file:
-    json.dump(data, json_file)
+    file_path = args.results_path
+    data["output"] = result
+    # Write the dictionary to a JSON file
+    with open(file_path, "w") as json_file:
+        json.dump(data, json_file)
 
-print(f"Results saved to {file_path}")
+    print(f"Results saved to {file_path}")
+else:
+    result = decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist())
+    print(decode(model.generate(idx,max_new_tokens=max_new_tokens)[0].tolist()))
 
