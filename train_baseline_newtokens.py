@@ -30,7 +30,7 @@ parser.add_argument('--checkpoint_iters', type=int, default=1000,help='Number of
 parser.add_argument('--max_new_tokens', type=int, default=1000,help='Number of training iterations for saving the model')
 parser.add_argument('--context_length', type=int, default=128,help='Max length of tokenized inputs')
 parser.add_argument('--prompt', type=str, default='',help='Prompt for the recipe generation.')
-parser.add_argument('--results_path', type=str, default='baseline.json', help='Path for the json file with results')
+parser.add_argument('--results_path', type=str, default='baseline_newtokens.json', help='Path for the json file with results')
 parser.add_argument('--train', type=bool, default=True, help='True if training model from scratch, False if loading a pretrained model')
 
 args = parser.parse_args()
